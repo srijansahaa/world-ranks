@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/Layout/layout";
 import styles from './Country.module.css';
+import Image from 'next/image'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const getCountry = async (id) => {
     const res = await fetch(
@@ -33,7 +35,7 @@ const Country = ({country}) => {
         <div className={styles.container}>
             <div className={styles.container_left}>
                 <div className={styles.overview_panel}>
-                    <img src ={country.flag} alt={country.name}></img>
+                    <LazyLoadImage src={country.flag} alt={country.name}  />
 
                     <h1 className={styles.overview_name}>{country.name}</h1>
                     <div className={styles.overview_region}>{country.region}</div>
@@ -94,7 +96,7 @@ const Country = ({country}) => {
                         <div className={styles.details_panel_borders_container}>
                             {borders.map(({flag, name}) => (
                                 <div className={styles.details_panel_borders_country}>
-                                    <img src={flag} alt ={name}/>
+                                    <LazyLoadImage src={flag} alt ={name}  />
 
                                     <div className={styles.details_panel_borders_name}>{name}</div>
                                 </div>

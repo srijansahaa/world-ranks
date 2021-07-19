@@ -2,6 +2,8 @@ import { KeyboardArrowDownRounded, KeyboardArrowUpRounded } from '@material-ui/i
 import { useState } from 'react';
 import styles from './CountriesTable.module.css'
 import Link from 'next/link';
+import Image from 'next/image'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const orderBy = (countries, value, direction) => {
     if (direction === "asc") {
@@ -112,7 +114,7 @@ const CountriesTable = ({countries}) => {
                     <div className={styles.row}>
 
                         <div className={styles.flag}>
-                            <img src={country.flag} alt={country.name}/>
+                            <LazyLoadImage src={country.flag} alt={country.name}/>
                         </div>
 
                         <div className={styles.name}>{country.name}</div>
